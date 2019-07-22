@@ -1,35 +1,51 @@
 import React from 'react';
-import logo from '../logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import Board from './Board';
 import PlayerList from './PlayerList';
+import Navbar from './Navbar';
+import Logo from '../logo.svg';
+import styled from 'styled-components';
 
-
-// takes global state and passes it into the component props
 const mapStateToProps = (state: any, ownProps: any) => {
   return {};
 };
 
-// gives access to the dispatch function
 const mapDispatchToProps = (dispatch: Function, ownProps: any) => {
   return {};
 };
 
-const App: React.FC = (props: any) => {
-  console.log(props);
+const IntroSection = styled.div`
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+`;
 
+const App: React.FC = () => {
   return (
-    <div className="section">
-      <div className="columns  is-centered">
-        <div className="column is-10">
-          <Board />
-        </div>
-        <div className="column">
-          <PlayerList />
+    <>
+      <Navbar/>
+
+      <IntroSection className="section has-text-centered">
+        <img src={Logo} width="112" height="28" alt={'logo'}/>
+        <p>
+          Use the arrow keys to move your player.
+        </p>
+        <p>
+          Find the prize and don't get eaten by the snake.
+        </p>
+      </IntroSection>
+
+      <div className="section">
+        <div className="columns is-centered is-wrapped is-multiline">
+          <div className="column is-9">
+            <Board/>
+          </div>
+          <div className="column is-3">
+            <PlayerList/>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

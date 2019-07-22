@@ -30,10 +30,10 @@ const Board: React.FC = (props: any) => {
       <>
         <table className={'table is-bordered'}>
           <tbody>
-          {Array(props.game.game.board.height).fill(0).map((elem, idx) => {
+          {Array(Math.ceil(props.game.game.board.height /1.2)).fill(0).map((elem, idx) => {
             return (
               <tr key={idx}>
-                {Array(props.game.game.board.width).fill(0).map((elem, ing) => {
+                {Array(Math.ceil(props.game.game.board.width / 4)).fill(0).map((elem, ing) => {
                   return (
                     <td key={ing}>
                       {idx}
